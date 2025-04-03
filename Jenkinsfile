@@ -47,21 +47,17 @@ pipeline {
         }
 
         stage('Push Docker Image') {
-            steps {
-                script {
-                    echo "📤 Pushing Docker Image to Docker Hub..."
-                    withCredentials([string(credentialsId: 'docker-hub-credential', variable: 'DOCKER_HUB_TOKEN')]) {
-                        sh '''
-                            echo "🔐 Logging in to Docker Hub..."
-                            echo "$DOCKER_HUB_TOKEN" | docker login -u "harishree11" --password-stdin
-                            echo "🚀 Pushing Docker Image: ${DOCKER_IMAGE}..."
-                            docker push ${DOCKER_IMAGE}
-                            echo "✅ Docker Image Push Successful!"
-                        '''
-                    }
-                }
+    steps {
+        script {
+            withCredentials([string(credentialsId: 'docker-hub-credential', variable: 'DOCKER_ACCESS_TOKEN')]) {
+                sh 'docker logout'
+                sh 'echo $DOCKER_ACCESS_TOKEN | docker login -u "harishree11" --password-stdin'
+                sh 'docker push harishree11/harishree:latest'
             }
         }
+    }
+}
+
 
         stage('Start Minikube & Deploy App') {
             steps {
