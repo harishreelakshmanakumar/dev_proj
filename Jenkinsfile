@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        DOCKER_IMAGE = "shandeep04/docker_jenkins_task2:latest"
+        DOCKER_IMAGE = "harishree11/harishree:latest"
         K8S_DEPLOYMENT = "k8s/doctor-app-deployment.yaml"
         K8S_SERVICE = "k8s/doctor-app-service.yaml"
         PROMETHEUS_DEPLOYMENT = "k8s/prometheus-deployment.yaml"
@@ -27,7 +27,7 @@ pipeline {
                     $class: 'GitSCM',
                     branches: [[name: 'main']],
                     userRemoteConfigs: [[
-                        url: 'https://github.com/Shandeepsugumar/online-learning-platform.git',
+                        url: 'https://github.com/harishreelakshmanakumar/dev_proj.git',
                         credentialsId: 'github-credentials-id'
                     ]]
                 ])
