@@ -8,7 +8,7 @@ pipeline {
         PROMETHEUS_DEPLOYMENT = "k8s/prometheus-deployment.yaml"
         PROMETHEUS_CONFIG = "k8s/prometheus-configmap.yaml"
         GRAFANA_DEPLOYMENT = "k8s/grafana-deployment.yaml"
-        KUBECONFIG = "/home/shandeep/.kube/config"
+        KUBECONFIG = "/home/hari/.kube/config"
         WORK_DIR = "${WORKSPACE}"
     }
 
@@ -53,7 +53,7 @@ pipeline {
                     withCredentials([string(credentialsId: 'docker-hub-credential', variable: 'DOCKER_HUB_TOKEN')]) {
                         sh '''
                             echo "🔐 Logging in to Docker Hub..."
-                            echo "$DOCKER_HUB_TOKEN" | docker login -u "shandeep04" --password-stdin
+                            echo "$DOCKER_HUB_TOKEN" | docker login -u "harishree11" --password-stdin
                             echo "🚀 Pushing Docker Image: ${DOCKER_IMAGE}..."
                             docker push ${DOCKER_IMAGE}
                             echo "✅ Docker Image Push Successful!"
