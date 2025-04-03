@@ -15,7 +15,7 @@ spec:
         app: doctor-app
     spec:
       containers:
-        - name: doctor-app
+        - name: finalProject-app
           image: harishree11/harishree:latest
           ports:
             - containerPort: 4000
