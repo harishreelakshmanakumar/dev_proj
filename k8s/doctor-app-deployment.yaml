@@ -1,21 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: doctor-app
+  name: final-app
   labels:
-    app: doctor-app
+    app: final-app
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: doctor-app
+      app: final-app
   template:
     metadata:
       labels:
-        app: doctor-app
+        app: final-app
     spec:
       containers:
-        - name: doctor-app
+        - name: final-app
           image: harishree11/harishree:latest
           ports:
             - containerPort: 4000
