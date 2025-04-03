@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: doctor-app
-          image: shandeep04/docker_jenkins_task2:latest
+          image: harishree11/harishree:latest
           ports:
             - containerPort: 4000
           env:
