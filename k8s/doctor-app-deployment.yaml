@@ -21,7 +21,7 @@ spec:
             - containerPort: 4000
           env:
             - name: MONGO_URI
-              value: "mongodb://localhost:27017/coderone"
+              value: "mongodb://localhost:27017/mydatabase"
           resources:
             limits:
               memory: "512Mi"
